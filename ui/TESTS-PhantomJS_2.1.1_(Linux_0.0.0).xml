@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<testsuite name="PhantomJS 2.1.1 (Linux 0.0.0)" package="" timestamp="2016-03-07T09:42:09" id="0" hostname="precise64" tests="52" errors="0" failures="0" time="0.314">
+  <properties>
+    <property name="browser.fullName" value="Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1"/>
+  </properties>
+  <testcase name="test getBaseList when pizza bases are successfully retrieved" time="0.026" classname="PhantomJS_2_1_1_(Linux_0_0_0).Base Controller Tests"/>
+  <testcase name="test getBaseList when dataFactory service rejects promise" time="0.005" classname="PhantomJS_2_1_1_(Linux_0_0_0).Base Controller Tests"/>
+  <testcase name="test saveBase when newbasename is blank" time="0.005" classname="PhantomJS_2_1_1_(Linux_0_0_0).Base Controller Tests"/>
+  <testcase name="test saveBase when newbasename is valid and promise is resolved" time="0.009" classname="PhantomJS_2_1_1_(Linux_0_0_0).Base Controller Tests"/>
+  <testcase name="test getOrderList when orders are successfully retrieved" time="0.006" classname="PhantomJS_2_1_1_(Linux_0_0_0).Order Controller Tests"/>
+  <testcase name="test getOrderList when dataFactory service rejects promise" time="0.005" classname="PhantomJS_2_1_1_(Linux_0_0_0).Order Controller Tests"/>
+  <testcase name="test saveOrder when a new order is valid and promise is resolved" time="0.009" classname="PhantomJS_2_1_1_(Linux_0_0_0).Order Controller Tests"/>
+  <testcase name="test saveOrder when an existing Order is updated and promise is resolved" time="0.004" classname="PhantomJS_2_1_1_(Linux_0_0_0).Order Controller Tests"/>
+  <testcase name="test deleteOrder when promise is rejected" time="0.004" classname="PhantomJS_2_1_1_(Linux_0_0_0).Order Controller Tests"/>
+  <testcase name="test deleteOrder when promise is resolved" time="0.003" classname="PhantomJS_2_1_1_(Linux_0_0_0).Order Controller Tests"/>
+  <testcase name="test loadAllPizzas when promise is resolved" time="0.004" classname="PhantomJS_2_1_1_(Linux_0_0_0).Order Controller Tests"/>
+  <testcase name="test clearState and all state should be cleared" time="0.004" classname="PhantomJS_2_1_1_(Linux_0_0_0).Order Controller Tests"/>
+  <testcase name="test setOrderId" time="0.02" classname="PhantomJS_2_1_1_(Linux_0_0_0).Order Controller Tests"/>
+  <testcase name="test getPizzaList when pizzas are successfully retrieved" time="0.006" classname="PhantomJS_2_1_1_(Linux_0_0_0).Pizza Controller Tests"/>
+  <testcase name="test getPizzaList when dataFactory service rejects promise" time="0.006" classname="PhantomJS_2_1_1_(Linux_0_0_0).Pizza Controller Tests"/>
+  <testcase name="test savePizza when a new Pizza is valid and promise is resolved" time="0.006" classname="PhantomJS_2_1_1_(Linux_0_0_0).Pizza Controller Tests"/>
+  <testcase name="test savePizza when an existing Pizza is updated and promise is resolved" time="0.004" classname="PhantomJS_2_1_1_(Linux_0_0_0).Pizza Controller Tests"/>
+  <testcase name="test loadAllToppings when promise is resolved" time="0.004" classname="PhantomJS_2_1_1_(Linux_0_0_0).Pizza Controller Tests"/>
+  <testcase name="test loadAllBases when promise is resolved" time="0.003" classname="PhantomJS_2_1_1_(Linux_0_0_0).Pizza Controller Tests"/>
+  <testcase name="test clearState and all state should be cleared" time="0.006" classname="PhantomJS_2_1_1_(Linux_0_0_0).Pizza Controller Tests"/>
+  <testcase name="test populateSelectedPizzaDetails and the correct pizza should be populated in the state" time="0.005" classname="PhantomJS_2_1_1_(Linux_0_0_0).Pizza Controller Tests"/>
+  <testcase name="test setPizzaId" time="0.003" classname="PhantomJS_2_1_1_(Linux_0_0_0).Pizza Controller Tests"/>
+  <testcase name="test getBaseList when pizza bases are successfully retrieved" time="0.004" classname="PhantomJS_2_1_1_(Linux_0_0_0).Topping Controller Tests"/>
+  <testcase name="test getBaseList when dataFactory service rejects promise" time="0.002" classname="PhantomJS_2_1_1_(Linux_0_0_0).Topping Controller Tests"/>
+  <testcase name="test saveTopping when newtoppingname is blank" time="0.004" classname="PhantomJS_2_1_1_(Linux_0_0_0).Topping Controller Tests"/>
+  <testcase name="test saveTopping when newtoppingname is valid and promise is resolved" time="0.011" classname="PhantomJS_2_1_1_(Linux_0_0_0).Topping Controller Tests"/>
+  <testcase name="should return an error when a blank base name is passed in" time="0.012" classname="PhantomJS_2_1_1_(Linux_0_0_0).Service: RuleService"/>
+  <testcase name="should not return an error when a valid base name is passed in" time="0.003" classname="PhantomJS_2_1_1_(Linux_0_0_0).Service: RuleService"/>
+  <testcase name="should return an error when a blank topping name is passed in" time="0.002" classname="PhantomJS_2_1_1_(Linux_0_0_0).Service: RuleService"/>
+  <testcase name="should not return an error when a valid topping name is passed in" time="0.006" classname="PhantomJS_2_1_1_(Linux_0_0_0).Service: RuleService"/>
+  <testcase name="should not return an error when a valid pizza is passed" time="0.002" classname="PhantomJS_2_1_1_(Linux_0_0_0).Service: RuleService"/>
+  <testcase name="should return an error when a blank pizza is passed" time="0.003" classname="PhantomJS_2_1_1_(Linux_0_0_0).Service: RuleService"/>
+  <testcase name="should return an error when a blank price is passed" time="0.001" classname="PhantomJS_2_1_1_(Linux_0_0_0).Service: RuleService"/>
+  <testcase name="should return an error when a invalid pizza is passed" time="0" classname="PhantomJS_2_1_1_(Linux_0_0_0).Service: RuleService"/>
+  <testcase name="should return an error when a base is not provided in the pizza" time="0.003" classname="PhantomJS_2_1_1_(Linux_0_0_0).Service: RuleService"/>
+  <testcase name="should return an error when the pizza has no toppings" time="0.003" classname="PhantomJS_2_1_1_(Linux_0_0_0).Service: RuleService"/>
+  <testcase name="should return an error when the order has no pizzas" time="0.004" classname="PhantomJS_2_1_1_(Linux_0_0_0).Service: RuleService"/>
+  <testcase name="should be able to delete a pizza by calling deleteEntity" time="0.009" classname="PhantomJS_2_1_1_(Linux_0_0_0).Factory: dataFactory"/>
+  <testcase name="should be able to edit a pizza by calling editEntity" time="0.004" classname="PhantomJS_2_1_1_(Linux_0_0_0).Factory: dataFactory"/>
+  <testcase name="should be able to edit an order by calling editEntity" time="0.003" classname="PhantomJS_2_1_1_(Linux_0_0_0).Factory: dataFactory"/>
+  <testcase name="should be able to add a base by calling addEntity" time="0.004" classname="PhantomJS_2_1_1_(Linux_0_0_0).Factory: dataFactory"/>
+  <testcase name="should be able to add a topping by calling addEntity" time="0.004" classname="PhantomJS_2_1_1_(Linux_0_0_0).Factory: dataFactory"/>
+  <testcase name="should be able to add a pizza by calling addEntity" time="0.028" classname="PhantomJS_2_1_1_(Linux_0_0_0).Factory: dataFactory"/>
+  <testcase name="should be able to add an order by calling addEntity" time="0.014" classname="PhantomJS_2_1_1_(Linux_0_0_0).Factory: dataFactory"/>
+  <testcase name="should return HTTP 200 and 2 bases when getting all the bases" time="0.005" classname="PhantomJS_2_1_1_(Linux_0_0_0).Factory: dataFactory"/>
+  <testcase name="should return HTTP 200 and 2 toppings when getting all the toppings" time="0.008" classname="PhantomJS_2_1_1_(Linux_0_0_0).Factory: dataFactory"/>
+  <testcase name="should return HTTP 200 and 2 pizzas when getting all the pizzas" time="0.005" classname="PhantomJS_2_1_1_(Linux_0_0_0).Factory: dataFactory"/>
+  <testcase name="should return HTTP 200 and 1 order when getting all the orders" time="0.007" classname="PhantomJS_2_1_1_(Linux_0_0_0).Factory: dataFactory"/>
+  <testcase name="should return an HTTP 404 when a wrong entity type for base is passed" time="0.003" classname="PhantomJS_2_1_1_(Linux_0_0_0).Factory: dataFactory"/>
+  <testcase name="should return an HTTP 404 when a wrong entity type for topping is passed" time="0.004" classname="PhantomJS_2_1_1_(Linux_0_0_0).Factory: dataFactory"/>
+  <testcase name="should return an HTTP 404 when a wrong entity type for order is passed" time="0.005" classname="PhantomJS_2_1_1_(Linux_0_0_0).Factory: dataFactory"/>
+  <testcase name="should return an HTTP 404 when a wrong entity type for toppings is passed" time="0.004" classname="PhantomJS_2_1_1_(Linux_0_0_0).Factory: dataFactory"/>
+  <system-out>
+    <![CDATA[
+]]>
+  </system-out>
+  <system-err/>
+</testsuite>

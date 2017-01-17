@@ -1,0 +1,5 @@
+{
+  "directory": "bower_components",
+  "proxy":"http://noida-tz-ps2:80/",
+  "https-proxy":"http://noida-tz-ps2:80"
+}
