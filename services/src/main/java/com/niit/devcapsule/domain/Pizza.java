@@ -1,5 +1,6 @@
-/*
- * 
+/**
+ * @author PSachdev
+ * @version Revision: 1.0 $
  */
 package com.niit.devcapsule.domain;
 
@@ -43,7 +44,8 @@ public class Pizza {
   Base base;
 
   /** The toppings. */
-  @ManyToMany(targetEntity = com.niit.devcapsule.domain.Topping.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+  @ManyToMany(targetEntity = com.niit.devcapsule.domain.Topping.class, fetch = FetchType.LAZY,
+      cascade = CascadeType.ALL)
   Set<Topping> toppings = new HashSet<Topping>();
 
   /**

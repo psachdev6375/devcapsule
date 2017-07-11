@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.easymock.Capture;
 import org.easymock.EasyMock;
@@ -63,7 +64,7 @@ public class PizzaOrderServiceImplTest {
     EasyMock.expect(pizzaOrderDAO.findById(1L)).andReturn(newOrder).anyTimes();
 
     EasyMock.expect(pizzaOrderDAO.findById(2L)).andReturn(null).anyTimes();
-
+    
     EasyMock.replay(pizzaOrderDAO);
   }
 
@@ -78,6 +79,33 @@ public class PizzaOrderServiceImplTest {
     Iterable<PizzaOrder> result = fixture.findAll();
     assertNotNull(result);
     assertEquals(result.iterator().next().getId().longValue(), 1L);
+  }
+  
+  /**
+   * Test delete order.
+   *
+   * @throws Exception
+   *           the exception
+   */
+  @Test
+  public void testDeleteOrder() throws Exception {
+    PizzaOrderDAO pizzaOrderDAOForDelete = EasyMock.createNiceMock(PizzaOrderDAO.class);;
+    PizzaOrderServiceImpl fixtureForDelete = new PizzaOrderServiceImpl();
+    fixtureForDelete.pizzaOrderDAO = pizzaOrderDAOForDelete;
+    final AtomicBoolean deleteCalled = new AtomicBoolean();
+    
+    pizzaOrderDAOForDelete.delete(1L);
+    EasyMock.expectLastCall().andAnswer(new IAnswer<Object>() {
+      public Object answer() {
+        deleteCalled.set(true);
+        return null;
+      }
+    });
+    
+    EasyMock.replay(pizzaOrderDAOForDelete);
+    fixtureForDelete.deleteOrder(1L);
+    EasyMock.verify(pizzaOrderDAOForDelete);
+    assertEquals(Boolean.TRUE, deleteCalled.get());
   }
 
   /**

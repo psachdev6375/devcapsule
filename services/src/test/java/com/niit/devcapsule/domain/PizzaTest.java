@@ -94,6 +94,17 @@ public class PizzaTest {
     assertNotNull(fixture);
     assertEquals(fixture.getPrice(), new BigDecimal(102));
   }
+  
+  /**
+   * Test setName.
+   */
+  @Test
+  public void testSetName() {
+    fixture = new Pizza();
+    fixture.setName("New Pizza");
+    assertEquals(fixture.getName(), "New Pizza");
+  }
+  
 
   /**
    * Launch the test.

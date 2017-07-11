@@ -113,6 +113,7 @@ public class PizzaServiceImplTest {
     pizza = fixture.addPizza(pizza);
     assertNotNull(pizza);
     assertEquals(pizza.getName(), "Veggie");
+    assertNotNull(pizza.getToppings());
   }
 
   /**
@@ -126,6 +127,7 @@ public class PizzaServiceImplTest {
     Pizza pizza = new Pizza(1L, "Veggie", new BigDecimal(102.00), new Base(1L, "Pan"));
     pizza = fixture.addPizza(pizza);
     assertNotNull(pizza);
+    assertEquals(pizza.getToppings(), null);
     assertEquals(pizza.getName(), "Veggie");
   }
 

@@ -50,6 +50,7 @@ public class PizzaOrderTest {
     pizzas.add(e);
     fixture = new PizzaOrder(1L, pizzas, new BigDecimal(1020));
     assertNotNull(fixture);
+    assertNotNull(fixture.getPizzas());
   }
 
 }

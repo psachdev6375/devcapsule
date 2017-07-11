@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.easymock.Capture;
 import org.easymock.EasyMock;
@@ -108,7 +109,7 @@ public class PizzaOrderControllerTest {
     pizza.setId(1L);
     pizzas.add(pizza);
     PizzaOrder order = new PizzaOrder(pizzas, new BigDecimal(1020));
-    order = fixture.addPizzaOrder(order);
+    order = fixture.addPizza(order);
     assertNotNull(order);
     assertEquals(order.getId().longValue(), 1L);
   }
@@ -130,7 +131,7 @@ public class PizzaOrderControllerTest {
     pizzas.add(pizza);
     pizzas.add(pizza);
     PizzaOrder order = new PizzaOrder(1L, pizzas, new BigDecimal(1020));
-    order = fixture.savePizzaOrder(order, 1L);
+    order = fixture.savePizza(order, 1L);
     assertNotNull(order);
     assertEquals(order.getTotalPrice().longValue(), 1020);
   }
@@ -152,7 +153,7 @@ public class PizzaOrderControllerTest {
     pizzas.add(pizza);
     pizzas.add(pizza);
     PizzaOrder order = new PizzaOrder(2L, pizzas, new BigDecimal(1020));
-    order = fixture.savePizzaOrder(order, 2L);
+    order = fixture.savePizza(order, 2L);
   }
 
   /**
@@ -163,13 +164,34 @@ public class PizzaOrderControllerTest {
    */
   @Test
   public void testDelete() throws Exception {
-    Exception ex = null;
-    try {
-      fixture.deletePizzaOrder(1L);
-    } catch (Exception e) {
-      ex = e;
-    }
-    assertEquals(ex, null);
+    PizzaOrderController fixtureforDelete = new PizzaOrderController();
+    PizzaOrderService pizzaOrderServlceForDelete = EasyMock.createNiceMock(PizzaOrderService.class);
+    fixtureforDelete.pizzaOrderService = pizzaOrderServlceForDelete;
+    final AtomicBoolean deleteCalled = new AtomicBoolean();
+
+    // Add Order in Mock
+    Set<Pizza> pizzas = new HashSet<Pizza>();
+    Set<Topping> toppings = new HashSet<Topping>();
+    toppings.add(new Topping(1L, "Onion"));
+    toppings.add(new Topping(2L, "Capsucum"));
+    pizzas.add(new Pizza(1L, "Veggie", new BigDecimal(102.00), new Base(1L, "Pan"), toppings));
+    List<PizzaOrder> orders = new ArrayList<PizzaOrder>();
+    orders.add(new PizzaOrder(1L, pizzas, new BigDecimal(1020)));
+    EasyMock.expect(pizzaOrderServlceForDelete.findById(1L))
+        .andReturn(new PizzaOrder(1L, pizzas, new BigDecimal(1020)));
+
+    pizzaOrderServlceForDelete.deleteOrder(1L);
+    EasyMock.expectLastCall().andAnswer(new IAnswer<Object>() {
+      public Object answer() {
+        deleteCalled.set(true);
+        return null;
+      }
+    });
+    
+    EasyMock.replay(pizzaOrderServlceForDelete);
+    fixtureforDelete.deletePizza(1L);
+    EasyMock.verify(pizzaOrderServlceForDelete);
+    assertEquals(Boolean.TRUE, deleteCalled.get());
   }
 
   /**
@@ -180,7 +202,7 @@ public class PizzaOrderControllerTest {
    */
   @Test(expected = ResourceNotFoundException.class)
   public void testDeleteNotFound() throws Exception {
-    fixture.deletePizzaOrder(2L);
+    fixture.deletePizza(2L);
   }
 
   /**

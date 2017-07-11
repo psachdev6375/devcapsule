@@ -1,11 +1,11 @@
-/*
- * 
+/**
+ * @author PSachdev
+ * @version Revision: 1.0 $
  */
 package com.niit.devcapsule.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,8 +33,8 @@ public class ToppingController {
    *
    * @return the toppings
    */
-  @CrossOrigin(origins = "http://localhost:8000")
-  @ApiOperation(value = "Get all the toppings", response = Topping.class, responseContainer = "List", produces = "application/json")
+  @ApiOperation(value = "Get all the toppings", response = Topping.class, responseContainer = "List",
+      produces = "application/json")
   @RequestMapping(value = "/toppings", method = RequestMethod.GET)
   public Iterable<Topping> getToppings() {
     return toppingService.findAll();
@@ -65,8 +65,8 @@ public class ToppingController {
    *          the topping
    * @return the topping
    */
-  @CrossOrigin(origins = "http://localhost:8000")
-  @ApiOperation(value = "Add a new topping", notes = "ID to be left blank. Will be ignored if passed.", response = Topping.class, produces = "application/json")
+  @ApiOperation(value = "Add a new topping", notes = "ID to be left blank. Will be ignored if passed.",
+      response = Topping.class, produces = "application/json")
   @RequestMapping(value = "/toppings", method = RequestMethod.POST, consumes = "application/json")
   public Topping addTopping(@ApiParam(value = "New topping to add", required = true) @RequestBody Topping topping) {
     return toppingService.addTopping(topping.getName());

@@ -1,11 +1,11 @@
-/*
- * 
+/**
+ * @author PSachdev
+ * @version Revision: 1.0 $
  */
 package com.niit.devcapsule.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,8 +33,8 @@ public class PizzaController {
    *
    * @return the toppings
    */
-  @CrossOrigin(origins = "http://localhost:8000")
-  @ApiOperation(value = "Get all the pizzas", response = Pizza.class, responseContainer = "List", produces = "application/json")
+  @ApiOperation(value = "Get all the pizzas", response = Pizza.class, responseContainer = "List",
+      produces = "application/json")
   @RequestMapping(value = "/pizzas", method = RequestMethod.GET)
   public Iterable<Pizza> getPizzas() {
     return pizzaService.findAll();
@@ -47,8 +47,8 @@ public class PizzaController {
    *          the pizza
    * @return the toppings
    */
-  @CrossOrigin(origins = "http://localhost:8000")
-  @ApiOperation(value = "Add a new pizza", notes = "Correct ID and Name combinations for Toppings need to be provided.", response = Pizza.class, produces = "application/json")
+  @ApiOperation(value = "Add a new pizza", notes = "Correct ID and Name combinations for Toppings need to be provided.",
+      response = Pizza.class, produces = "application/json")
   @RequestMapping(value = "/pizzas", method = RequestMethod.POST, consumes = "application/json")
   public Pizza addPizza(@ApiParam(value = "Pizza to be added", required = true) @RequestBody Pizza pizza) {
     return pizzaService.addPizza(pizza);
@@ -63,12 +63,10 @@ public class PizzaController {
    *          the id
    * @return the pizza
    */
-  @CrossOrigin(origins = "http://localhost:8000")
   @ApiOperation(value = "Save an existing pizza", response = Pizza.class, produces = "application/json")
   @RequestMapping(value = "/pizzas/{id}", method = RequestMethod.POST)
   public Pizza savePizza(@ApiParam(value = "Pizza to be saved", required = true) @RequestBody Pizza pizza,
       @ApiParam(value = "Id of the pizza to save", required = true) @PathVariable Long id) {
-    pizza.setId(id);
     Pizza isItthere = pizzaService.findById(id);
     if (isItthere == null) {
       throw new ResourceNotFoundException("Pizza with ID " + id + " not found");

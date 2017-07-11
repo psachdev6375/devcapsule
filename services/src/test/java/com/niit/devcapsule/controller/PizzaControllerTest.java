@@ -106,6 +106,7 @@ public class PizzaControllerTest {
     Pizza pizza = new Pizza(1L, "Veggie", new BigDecimal(102.00), new Base(1L, "Pan"));
     pizza = fixture.savePizza(pizza, 1L);
     assertNotNull(pizza);
+    assertEquals(pizza.getId().longValue(), 1L);
     assertEquals(pizza.getName(), "Veggie");
   }
 
