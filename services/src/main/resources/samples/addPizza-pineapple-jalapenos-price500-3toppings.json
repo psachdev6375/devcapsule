@@ -1,5 +1,5 @@
 {
-"name": "Veggie All",
+"name": "Pizza-Jalapenos-Pineapple-500",
 "price": 490,
 "base": {
   "id": 4,
@@ -15,7 +15,7 @@
     "name": "Jalapenos"
   },
   {
-    "id":11,
+    "id":12,
     "name": "Pineapple"
   }
 ]

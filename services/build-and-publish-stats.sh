@@ -1,1 +1,1 @@
-mvn clean cobertura:cobertura -Dcobertura.report.format=xml -DwithHistory org.pitest:pitest-maven:mutationCoverage sonar:sonar -Dsonar.pitest.mode=reuseReport -Dsonar.scm.provider=git install -f $HOME/work/devcapsule/pom.xml
+mvn clean cobertura:cobertura -Dcobertura.report.format=xml -DwithHistory org.pitest:pitest-maven:mutationCoverage sonar:sonar -Dsonar.pitest.mode=reuseReport install 

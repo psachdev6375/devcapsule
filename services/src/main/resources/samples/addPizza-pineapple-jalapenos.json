@@ -1,5 +1,5 @@
 {
-"name": "Veggie All",
+"name": "Pizza-Jalapenos-Pineapple-3000",
 "price": 3000,
 "base": {
   "id": 4,
@@ -27,7 +27,7 @@
     "name": "Olives"
   },
   {
-    "id":11,
+    "id":12,
     "name": "Pineapple"
   }
 ]
