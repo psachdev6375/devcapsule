@@ -1,5 +1,7 @@
 pipeline {
-    agent { docker 'psachdev/microservices-build:latest' }
+    agent { 
+        docker { image 'psachdev/microservices-build:latest' }
+    }
     stages {
         stage('build') {
             steps {
