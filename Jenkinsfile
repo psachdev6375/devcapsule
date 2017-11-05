@@ -7,7 +7,9 @@ pipeline {
             }
         }
         stage('static-analysis') {
-          sh 'mvn cobertura:cobertura -Dcobertura.report.format=xml -DwithHistory org.pitest:pitest-maven:mutationCoverage sonar:sonar -Dsonar.pitest.mode=reuseReport -f services/pom.xml'
+          steps {
+              sh 'mvn cobertura:cobertura -Dcobertura.report.format=xml -DwithHistory org.pitest:pitest-maven:mutationCoverage sonar:sonar -Dsonar.pitest.mode=reuseReport -f services/pom.xml'
+          }
         }
     }
 }
