@@ -6,7 +6,7 @@
 	<groupId>com.niit.devcapsule</groupId>
 	<artifactId>devcapsule-spring</artifactId>
 	<version>1.0</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>devcapsule-spring</name>
 	<description>Dev Capsule</description>
@@ -110,6 +110,16 @@
 					<formats>
 						<format>xml</format>
 					</formats>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.3</version>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+					<outputDirectory>target</outputDirectory>
+					<warName>ROOT</warName>
 				</configuration>
 			</plugin>
 		</plugins>
