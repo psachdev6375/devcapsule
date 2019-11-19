@@ -6,6 +6,7 @@ package com.puneet.devcapsule;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import springfox.documentation.builders.PathSelectors;
 
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
@@ -29,7 +30,9 @@ public class SwaggerConfig {
   @Bean
   public Docket api() {
     return new Docket(DocumentationType.SWAGGER_2).select()
-        .apis(RequestHandlerSelectors.basePackage("com.puneet.devcapsule.controller")).build()
+        .apis(RequestHandlerSelectors.basePackage("com.puneet.devcapsule.controller"))
+        .paths(PathSelectors.regex("/.*"))
+        .build()
         .apiInfo(new ApiInfo("AWS Java DevCapsule", "AWS Developer Capsule API", "1.0", null,
             "Puneet Sachdev", "Open Source GNU GPLv3 License", null));
   }
