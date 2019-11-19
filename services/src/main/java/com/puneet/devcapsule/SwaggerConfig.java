@@ -29,7 +29,7 @@ public class SwaggerConfig {
   @Bean
   public Docket api() {
     return new Docket(DocumentationType.SWAGGER_2).select()
-        .apis(RequestHandlerSelectors.basePackage("com.niit.devcapsule.controller")).build()
+        .apis(RequestHandlerSelectors.basePackage("com.puneet.devcapsule.controller")).build()
         .apiInfo(new ApiInfo("AWS Java DevCapsule", "AWS Developer Capsule API", "1.0", null,
             "Puneet Sachdev", "Open Source GNU GPLv3 License", null));
   }
